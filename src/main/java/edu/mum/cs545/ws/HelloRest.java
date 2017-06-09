@@ -53,75 +53,7 @@ public class HelloRest {
 			a = airlineService.findAll();
 		}
 		return a;
-	}
-
-	@Path("airline/create")
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response create(Airline airport) {
-
-		
-		airlineService.create(airport);
-		return Response.status(201).entity(airport).build();
-
-	}
-
-	@Path("airline/update")
-	@PUT
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response update(Airline airport) {
-
-		airlineService.update(airport);
-
-		return Response.status(201).entity(airport).build();
-
-	}
-
-	@Path("airline/findAirport")
-	@GET
-	public Response find(Airline airport) {
-		Airline airline=airlineService.find(airport);
-		return Response.status(200).entity(airline).build();
-	}
-
-	@Path("airline/{name}")
-	@GET
-	public Response findByName(@PathParam("name") String name) {
-		Airline a = airlineService.findByName(name);
-		if (a == null) {
-			return Response.status(404).build();
-		}
-		return Response.status(200).entity(a).build();
-
-	}
-
 	
-	@Path("airline/flight/{flight}")
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Airline> findByFlight(@PathParam("flight") int flight) {
-		List<Airline> a = new ArrayList<>();
-		Flight f= new Flight();
-		f.setId(flight);
-		a = airlineService.findByFlight(f);
-	
-		
-		return a;
-
-	}
-
-	@Path("airline/{name}")
-	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
-
-	public Response delete(@PathParam("name") String name) {
-		Airline a = airlineService.findByName(name);
-		if (a != null) {
-			airlineService.delete(a);
-
-		}
-
-		return Response.status(202).build();
 
 	}
 

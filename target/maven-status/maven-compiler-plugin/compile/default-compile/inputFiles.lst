@@ -1,5 +1,6 @@
 D:\waa\airlinesWebApps\src\main\java\edu\mum\cs545\ws\HelloRest.java
 D:\waa\airlinesWebApps\src\main\java\cs545\airline\model\Airline.java
+D:\waa\airlinesWebApps\src\main\java\edu\mum\cs545\ws\AirplaneRest.java
 D:\waa\airlinesWebApps\src\main\java\cs545\airline\model\Flight.java
 D:\waa\airlinesWebApps\src\main\java\cs545\airline\configuration\ClassBinder.java
 D:\waa\airlinesWebApps\src\main\java\edu\mum\gf\workaround\JpaUtil.java
@@ -16,3 +17,4 @@ D:\waa\airlinesWebApps\src\main\java\cs545\airline\dao\AirlineDao.java
 D:\waa\airlinesWebApps\src\main\java\cs545\airline\service\FlightService.java
 D:\waa\airlinesWebApps\src\main\java\edu\mum\gf\workaround\CDIBeanManager.java
 D:\waa\airlinesWebApps\src\main\java\edu\mum\gf\workaround\ResouceReleaseListener.java
+D:\waa\airlinesWebApps\src\main\java\edu\mum\cs545\ws\AirportRest.java

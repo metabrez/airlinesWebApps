@@ -21,18 +21,18 @@ import cs545.airline.model.Airplane;
 import cs545.airline.model.Flight;
 import cs545.airline.service.AirplaneService;
 
-@Named
+
 @Path("airplane")
 public class AirplaneRest {
 
 	@Inject
 	private AirplaneService airplaneService;
 	
-	@GET
+	/*@GET
 	public String helloWorld(@DefaultValue("From AirlaneRest Controller") @QueryParam("name") String name) {
 		return "Hello " + name + "!";
 	}
-	
+	*/
 
 	@Path("/create")
 	@POST
@@ -72,6 +72,7 @@ public class AirplaneRest {
 
 	@Path("{serialno}")
 	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response findBySrlnr(@PathParam("serialno") String serialno) {
 		Airplane a = airplaneService.findBySrlnr(serialno);
 		if (a == null) {
@@ -94,6 +95,7 @@ public class AirplaneRest {
 
 	@Path("/flight/{model}")
 	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response findByModel(@PathParam("model") String model) {
 		List<Airplane> a = airplaneService.findByModel(model);
 		return Response.status(200).entity(a).build();
@@ -102,6 +104,7 @@ public class AirplaneRest {
 
 	@Path("/list")
 	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllAirplanes() {
 		List<Airplane> a = airplaneService.findAll();
 		if (a.size() == 0) {
