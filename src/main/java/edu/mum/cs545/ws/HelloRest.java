@@ -77,15 +77,11 @@ public class HelloRest {
 
 	}
 
-	@Path("airline")
+	@Path("airline/findAirport")
 	@GET
-
 	public Response find(Airline airport) {
-
-		airlineService.find(airport);
-
-		return Response.status(201).entity(airport).build();
-
+		Airline airline=airlineService.find(airport);
+		return Response.status(200).entity(airline).build();
 	}
 
 	@Path("airline/{name}")
@@ -103,13 +99,10 @@ public class HelloRest {
 	@Path("airline/flight/{flight}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-
 	public List<Airline> findByFlight(@PathParam("flight") int flight) {
 		List<Airline> a = new ArrayList<>();
-
 		Flight f= new Flight();
 		f.setId(flight);
-	
 		a = airlineService.findByFlight(f);
 	
 		

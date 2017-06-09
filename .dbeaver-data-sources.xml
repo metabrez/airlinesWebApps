@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-sources>
 	<data-source id="derby_server-15c8474508f-2c4bb5c9a670109" provider="generic" driver="derby_server" name="Derby - waatest" save-password="true" show-system-objects="true" read-only="false">
-		<connection host="localhost" port="1527" server="" database="waatest" url="jdbc:derby://localhost:1527/waatest;create=false" type="dev">
+		<connection host="localhost" port="1527" server="" database="sun-appserv-samples;create=false" url="jdbc:derby://localhost:1527/sun-appserv-samples;create=false;create=false" user="APP" type="dev">
 			<network-handler type="PROXY" id="socks_proxy" enabled="false" save-password="false">
 				<property name="socks-port" value="1080"/>
 			</network-handler>
