@@ -14,13 +14,16 @@ import edu.mum.gf.workaround.JpaUtil;
 @ApplicationScoped
 public class AirplaneDao {
 
+
 //	@PersistenceContext(unitName = "cs545")
 //	private static EntityManager entityManager;
 //  Couldn't figure out another way to inject the persistence context
 	private EntityManager entityManager = JpaUtil.getEntityManager();
 	
 	public void create(Airplane airplane) {
+		entityManager.getTransaction().begin();
 		entityManager.persist(airplane);
+		entityManager.getTransaction().commit();
 	}
 
 	public Airplane update(Airplane airplane) {
@@ -28,7 +31,12 @@ public class AirplaneDao {
 	}
 
 	public void delete(Airplane airplane) {
-		entityManager.remove(airplane);
+		Airplane toremove = entityManager.find(Airplane.class, airplane.getId());
+		if (toremove != null) {
+			entityManager.getTransaction().begin();
+			entityManager.remove(toremove);
+			entityManager.getTransaction().commit();
+		}	
 	}
 
 	public Airplane findOne(long id) {

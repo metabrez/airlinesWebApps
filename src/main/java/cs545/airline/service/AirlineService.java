@@ -19,38 +19,37 @@ import cs545.airline.model.Flight;
 @ApplicationScoped
 @Transactional
 public class AirlineService {
-
 	// These services should be evaluated to reconsider which methods should be
-	// public
+		// public
 
-	@Inject
-	private AirlineDao airlineDao;
-	
-	public void create(Airline airport) {
-		airlineDao.create(airport);
-	}
+		@Inject
+		private AirlineDao airlineDao;
+		
+		public void create(Airline airline) {
+			airlineDao.create(airline);
+		}
 
-	public void delete(Airline airport) {
-		airlineDao.delete(airport);
-	}
+		public void delete(Airline airline) {
+			airlineDao.delete(airline);
+		}
 
-	public Airline update(Airline airport) {
-		return airlineDao.update(airport);
-	}
+		public Airline update(Airline airline) {
+			return airlineDao.update(airline);
+		}
 
-	public Airline find(Airline airport) {
-		return airlineDao.findOne(airport.getId());
-	}
+		public Airline find(Airline airline) {
+			return airlineDao.findOne(airline.getId());
+		}
 
-	public Airline findByName(String name) {
-		return airlineDao.findOneByName(name);
-	}
+		public Airline findByName(String name) {
+			return airlineDao.findOneByName(name);
+		}
 
-	public List<Airline> findByFlight(Flight flight) {
-		return airlineDao.findByFlight(flight.getId());
-	}
+		public List<Airline> findByFlight(Flight flight) {
+			return airlineDao.findByFlight(flight.getId());
+		}
 
-	public List<Airline> findAll() {
-		return airlineDao.findAll();
+		public List<Airline> findAll() {
+			return airlineDao.findAll();
 	}
 }

@@ -37,7 +37,7 @@ public class FlightRest {
 		return Response.ok(flight).build();
 	}
 
-	@Path("create")
+/*	@Path("create")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -48,7 +48,7 @@ public class FlightRest {
 		} catch (Exception e) {
 			return Response.serverError().entity("Flight can't be created.").build();
 		}
-	}
+	}*/
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -63,18 +63,18 @@ public class FlightRest {
 		}
 	}
 
-	@PUT
+/*	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("delete")
 	public Response delete(Flight airline) {
 		try {
-			flightService.delete(airline);
+			flightService.
 			return Response.ok(airline).build();
 		} catch (Exception e) {
 			return Response.serverError().entity("Cannot delete airline.").build();
 		}
-	}
+	}*/
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
