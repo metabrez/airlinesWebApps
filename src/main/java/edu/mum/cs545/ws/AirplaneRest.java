@@ -102,7 +102,7 @@ public class AirplaneRest {
 
 	}
 
-	@Path("/list")
+	@Path("list")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllAirplanes() {

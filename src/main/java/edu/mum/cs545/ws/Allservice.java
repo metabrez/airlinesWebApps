@@ -94,6 +94,24 @@ public class Allservice implements Serializable {
 
 		}
 	}
+	
+	public void createJsf(){
+		
+		Airline a=new Airline();
+		
+		a.setName(flightQuery.getAirlineName());
+		
+		airlineService.create(a);
+	}
+	
+	public void deleteJsf(){
+		
+		Airline a=new Airline();
+		
+		a.setId(flightQuery.getId());
+		
+		airlineService.delete(a);
+	}
 
 	public List<Flight> getListFlight() {
 		return listFlight;

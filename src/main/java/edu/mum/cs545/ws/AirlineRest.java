@@ -81,13 +81,13 @@ public class AirlineRest {
 	}
 
 	
-	@Path("flight/{flight}")
+	@Path("flight/{id}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Airline> findByFlight(@PathParam("flight") int flight) {
+	public List<Airline> findByFlight(@PathParam("id") int id) {
 		List<Airline> a = new ArrayList<>();
 		Flight f= new Flight();
-		f.setId(flight);
+		f.setId(id);
 		a = airlineService.findByFlight(f);
 	
 		
@@ -106,7 +106,7 @@ public class AirlineRest {
 
 		}
 
-		return Response.status(202).build();
+		return Response.status(200).build();
 
 	}
 }

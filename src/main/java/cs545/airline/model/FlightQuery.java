@@ -10,8 +10,18 @@ package cs545.airline.model;
 	
 	private String searchBy;
 	
+	private long id;
+	
 	
 	 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getAirlineName() {
 		return airlineName;
 	}

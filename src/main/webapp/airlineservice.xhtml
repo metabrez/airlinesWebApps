@@ -19,13 +19,22 @@
 
 	<h:form>
 		<h:outputLabel>Airline Name</h:outputLabel>
-		<h:inputText value="#{airline.name}"></h:inputText>
+		<h:inputText id="airlinename"   value="#{allservice.flightQuery.airlineName}"></h:inputText>
 
-		<h:commandButton action="airline/create" value = "search">
-			<f:ajax render="table_id" execute="@form" event="click" />
+		<h:commandButton  value = "create">
+			<f:ajax listener="#{allservice.createJsf()}" render="table_id" />
+		</h:commandButton>
+		
+		<h:outputLabel>Airline Name</h:outputLabel>
+		<h:inputText id="airlineid"   value="#{allservice.flightQuery.id}"></h:inputText>
+
+		<h:commandButton  value = "delete">
+			<f:ajax listener="#{allservice.deleteJsf()}" render="table_id" />
 		</h:commandButton>
 
 	</h:form>
+	
+	
 
 
 	<div style="float: left;">
