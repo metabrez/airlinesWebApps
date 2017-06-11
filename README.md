@@ -13,3 +13,6 @@
 5 To get List of by Airline name Method : GET URL : http://localhost:8080/airlinesWebApp/rs/airline/flight/oneworld Response : [{"id":10,"name":"oneworld"},{"id":10,"name":"oneworld"},{"id":10,"name":"oneworld"},{"id":10,"name":"oneworld"}]
 
 #AirPlaneService: #AirPortService: #FlightService: These all are similar to airport service
+
+JSF Screenshot in my google drive
+https://drive.google.com/drive/folders/0B2aUhALI67TtV2hmUjRCUG8tc2s
