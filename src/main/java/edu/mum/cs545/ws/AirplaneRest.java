@@ -21,7 +21,7 @@ import cs545.airline.model.Airplane;
 import cs545.airline.model.Flight;
 import cs545.airline.service.AirplaneService;
 
-
+@Named
 @Path("airplane")
 public class AirplaneRest {
 
