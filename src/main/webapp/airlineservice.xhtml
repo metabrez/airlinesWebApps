@@ -18,23 +18,15 @@
 	<br />
 
 	<h:form>
-		<h:outputLabel>Airline Name</h:outputLabel>
-		<h:inputText id="airlinename"   value="#{allservice.flightQuery.airlineName}"></h:inputText>
-
-		<h:commandButton  value = "create">
-			<f:ajax listener="#{allservice.createJsf()}" render="table_id" />
+ 	    AirlineName:
+ 	    <h:inputText id="text_airlinename"
+			value="#{allservice.flightQuery.airlineName}">
+		</h:inputText>
+		<h:commandButton value="Create">
+			<f:ajax listener="#{allservice.createJsf()}" execute="@form"
+				render="table_id" />
 		</h:commandButton>
-		
-		<h:outputLabel>Airline Name</h:outputLabel>
-		<h:inputText id="airlineid"   value="#{allservice.flightQuery.id}"></h:inputText>
-
-		<h:commandButton  value = "delete">
-			<f:ajax listener="#{allservice.deleteJsf()}" render="table_id" />
-		</h:commandButton>
-
 	</h:form>
-	
-	
 
 
 	<div style="float: left;">
@@ -42,35 +34,24 @@
 			styleClass="order-table" headerClass="order-table-header"
 			rowClasses="order-table-odd-row,order-table-even-row">
 			<h:column>
-				<f:facet name="header">Id</f:facet>#{o.id}
+				<f:facet name="header">Id</f:facet> #{o.id}
 			</h:column>
 			<h:column>
 				<f:facet name="header">Name</f:facet>#{o.name}
 			</h:column>
 
 			<h:column>
+				<f:facet name="header">Action</f:facet>
 				<h:form>
-					<h:commandButton action="#{airlineService.findAll()}"
-						value="View Flight"></h:commandButton>
+					<h:commandButton action="#{allservice.updateJsf(o)}"
+						value="Update"></h:commandButton>
+					<h:commandButton action="#{allservice.deleteJsf(o)}"
+						value="Delete"></h:commandButton>
 				</h:form>
 			</h:column>
 
 		</h:dataTable>
 	</div>
 
-
-
-	<div style="float: left; padding-left: 200px">
-		<h:dataTable value="#{airlineService.findAll()}" var="o" id="abcd"
-			styleClass="order-table" headerClass="order-table-header"
-			rowClasses="order-table-odd-row,order-table-even-row">
-			<h:column>
-				<f:facet name="header">Id</f:facet>#{o.id}
-		</h:column>
-			<h:column>
-				<f:facet name="header">Name</f:facet>#{o.name}
-		</h:column>
-		</h:dataTable>
-	</div>
 </h:body>
 </html>

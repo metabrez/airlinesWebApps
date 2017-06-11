@@ -1,5 +1,6 @@
 package edu.mum.cs545.ws;
 
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import cs545.airline.model.FlightQuery;
 import cs545.airline.service.AirlineService;
 import cs545.airline.service.AirportService;
 import cs545.airline.service.FlightService;
+import edu.mum.gf.workaround.*;
 
 @Named
 @ViewScoped
@@ -104,15 +106,17 @@ public class Allservice implements Serializable {
 		airlineService.create(a);
 	}
 	
-	public void deleteJsf(){
+	public void deleteJsf(Airline airline){
 		
-		Airline a=new Airline();
-		
-		a.setId(flightQuery.getId());
-		
-		airlineService.delete(a);
+		airlineService.delete(airline);
 	}
 
+	public void updateJsf(Airline airline) {
+		 		String s = ExtraUtil.getRandomString()+"_AirLine";
+		 		airline.setName(s);
+		 		airlineService.update(airline);
+		 
+		 	}
 	public List<Flight> getListFlight() {
 		return listFlight;
 	}
