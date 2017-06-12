@@ -29,12 +29,12 @@ public class AirplaneRest {
 	private AirplaneService airplaneService;
 	
 	/*@GET
-	public String helloWorld(@DefaultValue("From AirlaneRest Controller") @QueryParam("name") String name) {
+	public String helloWorld(@DefaultValue("From AirplaneRest Controller") @QueryParam("name") String name) {
 		return "Hello " + name + "!";
 	}
 	*/
 
-	@Path("/create")
+	@Path("create")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response create(Airplane airplane) {
@@ -43,7 +43,7 @@ public class AirplaneRest {
 
 	}
 
-	@Path("/delete")
+	@Path("delete")
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response delete(Airplane airplane) {
@@ -52,7 +52,7 @@ public class AirplaneRest {
 
 	}
 
-	@Path("/update")
+	@Path("update")
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response update(Airplane airplane) {
@@ -61,12 +61,19 @@ public class AirplaneRest {
 
 	}
 
-	@Path("airplane")
+	@Path("/")
 	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response find(Airplane airplane) {
 		Airplane airp = airplaneService.find(airplane);
-		return Response.status(201).entity(airp).build();
+		if(airp!=null){
+			
+			return Response.status(200).entity(airp).build();
+			
+		}
+		
+		return Response.status(404).build();
 
 	}
 
@@ -92,7 +99,7 @@ public class AirplaneRest {
 		a = airplaneService.findByFlight(f);
 		return a;
 	}
-
+/*
 	@Path("/flight/{model}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -100,18 +107,30 @@ public class AirplaneRest {
 		List<Airplane> a = airplaneService.findByModel(model);
 		return Response.status(200).entity(a).build();
 
+	}*/
+	
+	@Path("flight/model/{name}")
+	@GET
+	public List<Airplane> getAirPlaneByModel(@PathParam("name")String model) {
+		return airplaneService.findByModel(model);
 	}
+
+
+	/*@Path("flight/model/{serialno}")
+	@GET
+	public Airplane getAirplaneBySrlnr(@PathParam("serialno")String serialno) {
+		return airplaneService.findBySrlnr(serialno);
+	}
+*/
 
 	@Path("list")
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getAllAirplanes() {
-		List<Airplane> a = airplaneService.findAll();
-		if (a.size() == 0) {
-			return Response.status(204).build();
+	public List<Airplane> getAllAirplanes() {
+		List<Airplane> airplane = new ArrayList<>();
+		if (airplaneService.findAll() != null) {
+			airplane = airplaneService.findAll();
 		}
-		return Response.status(200).entity(a).build();
-
+		return airplane;
 	}
 
 }

@@ -1,9 +1,9 @@
 package edu.mum.cs545.ws;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -14,12 +14,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import cs545.airline.model.Airline;
 import cs545.airline.model.Airport;
-import cs545.airline.model.Flight;
-import cs545.airline.service.AirlineService;
 import cs545.airline.service.AirportService;
 
+@Named
 @Path("airport")
 public class AirportRest{
 	@Inject
