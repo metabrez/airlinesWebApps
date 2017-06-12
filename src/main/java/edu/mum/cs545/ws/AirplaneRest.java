@@ -116,12 +116,6 @@ public class AirplaneRest {
 	}
 
 
-	/*@Path("flight/model/{serialno}")
-	@GET
-	public Airplane getAirplaneBySrlnr(@PathParam("serialno")String serialno) {
-		return airplaneService.findBySrlnr(serialno);
-	}
-*/
 
 	@Path("list")
 	@GET

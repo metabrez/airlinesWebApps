@@ -21,7 +21,7 @@ import cs545.airline.service.AirportService;
 @Path("airport")
 public class AirportRest{
 	@Inject
-	private AirportService airporteService;
+	private AirportService airportService;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -29,7 +29,7 @@ public class AirportRest{
 	public Response find(@PathParam("id") int id) {
 		Airport airport = new Airport();
 		airport.setId(id);
-		airport = airporteService.find(airport);
+		airport = airportService.find(airport);
 
 		if (airport == null) {
 			return Response.status(Response.Status.NOT_FOUND)
@@ -45,7 +45,7 @@ public class AirportRest{
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response create(Airport airline) {
 		try {
-			airporteService.create(airline);
+			airportService.create(airline);
 			return Response.ok(airline).build();
 		} catch (Exception e) {
 			return Response.serverError().entity("Cannot create airline.").build();
@@ -58,7 +58,7 @@ public class AirportRest{
 	@Path("update")
 	public Response update(Airport airline) {
 		try {
-			airporteService.update(airline);
+			airportService.update(airline);
 			return Response.ok(airline).build();
 		} catch (Exception e) {
 			return Response.serverError().entity("Cannot update airline.").build();
@@ -71,7 +71,7 @@ public class AirportRest{
 	@Path("delete")
 	public Response delete(Airport airline) {
 		try {
-			airporteService.delete(airline);
+			airportService.delete(airline);
 			return Response.ok(airline).build();
 		} catch (Exception e) {
 			return Response.serverError().entity("Cannot delete airline.").build();
@@ -81,14 +81,14 @@ public class AirportRest{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Airport> index() {
-		return airporteService.findAll();
+		return airportService.findAll();
 	}
 
 	@Path("flight/{name}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Airport> getAirportbyFlight(@PathParam("name") String name) { 
-		return airporteService.findByName(name);
+		return airportService.findByName(name);
 
 	}
 
